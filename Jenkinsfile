@@ -1,5 +1,5 @@
 pipeline{
-    agent any
+    agent master
     stages{
         stage("TF Init"){
             steps{
