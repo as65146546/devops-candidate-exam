@@ -10,13 +10,13 @@ pipeline{
         stage("TF Validate"){
             steps{
                 echo "Validating Terraform Code"
-               // sh 'terraform validate'
+                sh 'terraform validate'
             }
         }
         stage("TF Plan"){
             steps{
                 echo "Executing Terraform Plan"
-                sh 'terraform plan'
+               // sh 'terraform plan'
             }
         }
         stage("TF Apply"){
