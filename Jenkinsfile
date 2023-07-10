@@ -16,7 +16,7 @@ pipeline{
         stage("TF Plan"){
             steps{
                 echo "Executing Terraform Plan"
-               // sh 'terraform plan'
+                sh 'terraform plan'
             }
         }
         stage("TF Apply"){
