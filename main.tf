@@ -17,7 +17,7 @@ resource "aws_route" "private_route" {
 resource "aws_lambda_function" "my_lambda" {
   function_name = "my-lambda-function"
   role          = data.aws_iam_role.lambda.arn
-  
+  filename      = "lambda_function.zip"  
 }
 
 resource "aws_security_group" "my_security_group" {
@@ -26,3 +26,5 @@ resource "aws_security_group" "my_security_group" {
   vpc_id      = data.aws_vpc.vpc.id
   
 }
+
+
