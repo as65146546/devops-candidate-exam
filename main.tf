@@ -25,6 +25,6 @@ resource "aws_route" "private_route" {
 #   description = "My security group"
 #   vpc_id      = data.aws_vpc.vpc.id
   
-}
+# }
 
 
