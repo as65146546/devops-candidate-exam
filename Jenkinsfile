@@ -28,9 +28,9 @@ pipeline{
         stage("Invoke Lambda"){
             steps {
                 echo "Invoking your AWS Lambda"
-                sh 'aws lambda invoke --function-name lambda_function --log-type Tail --payload "{}" output.txt'
+                sh 'pip3 install requests'
+                sh 'aws lambda invoke --function-name my-lambda-function --log-type Tail --payload "{}" output.txt'
             }
-
         }
     }
 }
