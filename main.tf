@@ -26,8 +26,8 @@ resource "aws_lambda_function" "my_lambda" {
   role          = data.aws_iam_role.lambda.arn
   handler       = "my_lambda.handler"
   runtime       = "python3.8"
-  filename      = "lambda_function.zip"
-  source_code_hash = filebase64sha256("lambda_function.zip")
+  filename      = "my_lambda.zip"
+  source_code_hash = filebase64sha256("my_lambda.zip")
 
   environment {
     variables = {
