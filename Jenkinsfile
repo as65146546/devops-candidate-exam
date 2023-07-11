@@ -28,7 +28,13 @@ pipeline{
         stage("Invoke Lambda"){
             steps{
                 echo "Invoking your AWS Lambda"
-                // sh 'pip install requests'
+                 sh 'pip install requests'
+                 sh 'aws lambda invoke \
+                        --function-name my-lambda-function \
+                        --cli-binary-format raw-in-base64-out \
+                        --log-type Tail \
+                        --region ap-south-1 \
+                        output.txt'
             }
         }
     }
