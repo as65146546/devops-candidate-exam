@@ -14,17 +14,29 @@ resource "aws_route" "private_route" {
   nat_gateway_id         = data.aws_nat_gateway.nat.id
 }
 
+resource "aws_security_group" "my_security_group" {
+  name        = "my-security-group"
+  description = "My security group"
+  vpc_id      = data.aws_vpc.vpc.id
+  
+}
+
 # resource "aws_lambda_function" "my_lambda" {
 #   function_name = "my-lambda-function"
 #   role          = data.aws_iam_role.lambda.arn
-#   filename      = "lambda_function.zip"  
+#   handler       = "my_lambda.handler"
+#   runtime       = "python3.8"
+#   filename      = "lambda_function.zip"
+#   source_code_hash = filebase64sha256("lambda_function.zip")
+
+#   environment {
+#     variables = {
+#       PRIVATE_SUBNET_ID = aws_subnet.private_subnet.id
+#       FULL_NAME         = "AsafLevi"
+#       EMAIL_ADDRESS     = "as65146546@gmail.com"
+#     }
+#   }
 # }
 
-# resource "aws_security_group" "my_security_group" {
-#   name        = "my-security-group"
-#   description = "My security group"
-#   vpc_id      = data.aws_vpc.vpc.id
-  
-# }
 
 
