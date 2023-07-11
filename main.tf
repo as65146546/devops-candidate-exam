@@ -21,22 +21,22 @@ resource "aws_security_group" "my_security_group" {
   
 }
 
-# resource "aws_lambda_function" "my_lambda" {
-#   function_name = "my-lambda-function"
-#   role          = data.aws_iam_role.lambda.arn
-#   handler       = "my_lambda.handler"
-#   runtime       = "python3.8"
-#   filename      = "lambda_function.zip"
-#   source_code_hash = filebase64sha256("lambda_function.zip")
+resource "aws_lambda_function" "my_lambda" {
+  function_name = "my-lambda-function"
+  role          = data.aws_iam_role.lambda.arn
+  handler       = "my_lambda.handler"
+  runtime       = "python3.8"
+  filename      = "lambda_function.zip"
+  source_code_hash = filebase64sha256("lambda_function.zip")
 
-#   environment {
-#     variables = {
-#       PRIVATE_SUBNET_ID = aws_subnet.private_subnet.id
-#       FULL_NAME         = "AsafLevi"
-#       EMAIL_ADDRESS     = "as65146546@gmail.com"
-#     }
-#   }
-# }
+  environment {
+    variables = {
+      PRIVATE_SUBNET_ID = aws_subnet.private_subnet.id
+      FULL_NAME         = "AsafLevi"
+      EMAIL_ADDRESS     = "as65146546@gmail.com"
+    }
+  }
+}
 
 
 
